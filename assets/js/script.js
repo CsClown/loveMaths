@@ -130,7 +130,13 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1;
-    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
+    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
+    let o1 = parseInt(document.getElementById('operand1').textContent);
+    let o2 = parseInt(document.getElementById('operand2').textContent);
+    let remainder = o1 % o2;
+    if ( remainder != 0) {
+        document.getElementById('operand1').textContent = o1 - remainder;
+    }
     document.getElementById('operator').textContent = '/';
 }
